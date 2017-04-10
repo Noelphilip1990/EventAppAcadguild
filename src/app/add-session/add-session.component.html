@@ -1,0 +1,41 @@
+
+<section class="sample-app-content">
+    <h1>Add Session:</h1>
+    <form class="form-horizontal" #f="ngForm" (ngSubmit)="onSubmitsSession(f)">
+        <div class="form-group ">
+            <label for="example-text-input" class="col-sm-2">Title:</label>
+           <div class="col-sm-5">
+            <input class="form-control" type="text"  name="title" [(ngModel)]="title" required>
+            </div>
+        </div>
+        <div class="form-group ">
+            <label for="example-text-input" class="col-sm-2">Author:</label>
+           <div class="col-sm-5">
+            <input class="form-control" type="text"  name="author" [(ngModel)]="author" required>
+            </div>
+        </div>
+        <div class="form-group ">
+            <label for="example-date-input" class="col-sm-2">Duration:</label>
+            <div class="col-sm-5">
+            <input class="form-control" type="time"  
+                [(ngModel)]="duration" name="duration" required>
+            </div>
+        </div>
+        <div class="form-group ">
+            <label for="example-text-input" class="col-sm-2">Details:</label>
+            <div class="col-sm-5">
+            <input class="form-control" type="text"  
+                [(ngModel)]="detail" name="detail" required>
+             </div>
+       </div>
+        
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-danger" type="button" (click)="close()">Close</button>
+        
+    </form>
+</section>
+<section class="sample-app-content">
+	<label>Event Name:</label>{{eventName}}
+	 <label>Date:</label>{{date}}
+	<label>Description:</label>{{desc}}
+</section>

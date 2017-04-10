@@ -1,0 +1,68 @@
+<div style="float:right;" class="dropdown" dropdown>
+        <button class="btn btn-primary" dropdown-open><span class="glyphicon glyphicon-menu-hamburger"></span> Menu</button>
+        <ul class="dropdown-menu">
+            <li><a href="#" (click)="logout()"><span style="color:red">Logout</span></a></li>
+        </ul>
+    </div>
+<div class="col-md-6">
+    <router-outlet></router-outlet>
+</div>
+<div class="col-md-6">
+
+ <h2>Welcome {{user | uppercase }}</h2>
+         
+  <br>
+  <accordion class="list-group" *ngFor="let li of list | orderByDate:['date']; let i = index">
+<div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1">Upcoming Events!!!</h4></div>
+   <accordion-group class="list-group-item list-group-item-action flex-column align-items-start " heading="{{i+1}}. {{li.name}}">
+    <div class="d-flex w-100 justify-content-between">
+    <p><b>Date</b>: {{li.date}}  <b>Time</b>:{{li.time}}</p>
+      <h5 class="mb-1"><b>Address</b>: {{li.address}}
+      </h5>
+      <h5 class="mb-1"><b>City</b>: {{li.city}}</h5>
+      <h5 class="mb-1"><b>Pincode</b>: {{li.pin}}</h5>
+      </div>
+    <!--<accordion *ngFor="let si of li.session ;let j =index">
+    <accordion-group heading="{{si.title}}">{{si.detail}}<br>
+
+<div class="form-group">
+<div class="row">
+        <label class="col-sm-2 control-label">Rating</label>
+        </div>
+        <div class="row">
+        <div class="col-sm-12">
+    <form #f="ngForm" (ngSubmit)="onSubmitsRate(f,i,j)">
+  <span class="star-rating star-5">
+  <input type="radio" [(ngModel)]="rating" name="rating" value="1"><i></i>
+  <input type="radio" [(ngModel)]="rating" name="rating" value="2"><i></i>
+  <input type="radio" [(ngModel)]="rating" name="rating" value="3"><i></i>
+  <input type="radio" [(ngModel)]="rating" name="rating" value="4"><i></i>
+  <input type="radio" [(ngModel)]="rating" name="rating" value="5"><i></i>
+</span>
+<div class="form-group">
+        <div class="row">
+        <div class="col-md-6">
+        <button class="btn btn-primary" [disabled]="!ngForm.valid" type="submit">RATE</button>
+        </div>
+        </div>
+        </div>
+  </form>
+        </div>
+        
+        
+        </div>
+    </div>
+
+    </accordion-group>
+    </accordion>
+    <small></small>
+    
+ !-->
+  </accordion-group>
+  
+  
+</accordion>
+</div>
+
+

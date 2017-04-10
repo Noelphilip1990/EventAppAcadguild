@@ -1,0 +1,49 @@
+<div class="row">
+      <div style="float:left;" >
+        <a routerLink="add" class="btn btn-circle-lg btn-primary" ><span class="glyphicon glyphicon-plus" ></span></a> <span style="font-size:20px;font-family:Palatino Linotype">Add Event</span>
+        </div>  
+<!-- button dropdown -->
+     <div style="float:right;" class="dropdown" dropdown>
+        <button class="btn btn-primary" dropdown-open><span class="glyphicon glyphicon-menu-hamburger"></span> Menu</button>
+        <ul class="dropdown-menu">
+    <li><a routerLink="add" [routerLinkActive]="['is-active']">Add Event</a></li>
+            <li><a href="#" (click)="logout()"><span style="color:red">Logout</span></a></li>
+            
+        </ul>
+    </div>    
+      
+    </div>
+    <div class="row">
+<div class="col-md-6">
+    <router-outlet></router-outlet>
+</div>
+<div class="col-md-6">
+ 
+  <accordion class="list-group" *ngFor="let li of list | orderByDate:['date']; let i = index">
+<div >
+     
+      <a class="btn btn-primary" routerLink="edit/{{i}}" 
+        [routerLinkActive]="['is-active']"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+        
+         <button (click)="deleteEvent(li.id)" class="btn btn-danger" 
+        ><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+      
+</div>
+  <accordion-group class="list-group-item list-group-item-action flex-column align-items-start " heading="{{i+1}}. {{li.name}}">
+    <div class="d-flex w-100 justify-content-between">
+    <p><b>Date</b>: {{li.date}}  <b>Time</b>:{{li.time}}</p>
+      <h5 class="mb-1"><b>Address</b>: {{li.address}}
+      </h5>
+      <h5 class="mb-1"><b>City</b>: {{li.city}}</h5>
+      <h5 class="mb-1"><b>Pincode</b>: {{li.pin}}</h5>
+      </div>
+ 
+  </accordion-group>
+  
+  
+</accordion>
+</div>
+
+</div>
+
+
